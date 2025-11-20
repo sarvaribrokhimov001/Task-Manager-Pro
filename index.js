@@ -5,7 +5,7 @@ let tasks = [];
 const el = (s) => document.querySelector(s);
 const title = el("#title");
 const desc = el(".desc");
-const priority = el(".priority");
+const levels = el(".levels");
 const category = el(".category");
 const addBtn = el(".addBtn");
 const removeLast = el(".removeLast");
@@ -24,7 +24,7 @@ function render(list = tasks) {
         const card = document.createElement("div");
 
         let color = "";
-        switch (t.priority) {
+        switch (t.levels) {
             case "high": color = "red"; break;
             case "medium": color = "yellow"; break;
             case "low": color = "lightgreen"; break;
@@ -34,7 +34,7 @@ function render(list = tasks) {
             <h3>${t.title}</h3>
             <p>${shortText(t.description)}</p>
             <p>Category: ${t.category}</p>
-            <span style="background:${color}">${t.priority}</span>
+            <span style="background:${color}">${t.levels}</span>
             <p>Status: ${t.completed ? "Done" : "In progress"}</p>
 
             <button onclick="completeTask(${t.id})">Complete</button>
@@ -49,7 +49,7 @@ function render(list = tasks) {
 function addTask() {
     const t = title.value.trim();
     const d = desc.value.trim().toLowerCase();
-    const p = priority.value;
+    const p = levels.value;
     const c = category.value.trim();
 
     if (!t || !d) return alert("Input larni to'ldiring");
@@ -58,7 +58,7 @@ function addTask() {
         id: Date.now(),
         title: t.charAt(0).toUpperCase() + t.slice(1),
         description: d,
-        priority: p,
+        levels: p,
         category: c,
         completed: false
     });
@@ -94,7 +94,7 @@ document.querySelectorAll(".filters button").forEach(btn => {
 
         if (f === "all") return render();
         if (f === "completed") return render(tasks.filter(t => t.completed));
-        render(tasks.filter(t => t.priority === f));
+        render(tasks.filter(t => t.levels === f));
     });
 });
 

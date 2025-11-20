@@ -30,8 +30,4 @@ body {
     .filters {
         flex-direction: column;
     }
-    
-    .filters button {
-        flex: 1 1 100%;
-    }
 }
