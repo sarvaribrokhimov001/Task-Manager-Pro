@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Task Manager Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<header>
+    <h1 class="title">Task Manager Pro</h1>
+</header>
+
+<section class="form-box">
+    <input id="title" type="text" placeholder="Title">
+    <textarea class="desc" placeholder="Description"></textarea>
+
+    <select class="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+
+    <input class="category" type="text" placeholder="Category">
+
+    <button class="addBtn"> Add Task </button>
+    <button class="removeLast"> Remove Last Task </button>
+</section>
+</div>
+<!-- <section class="filters">
+    <button data-filter="all"> All </button>
+    <button data-filter="high"> High </button>
+    <button data-filter="medium"> Medium </button>
+    <button data-filter="low"> Low </button>
+    <button data-filter="completed"> Completed </button>
+</section> -->
+
+<h3> Total Tasks: <span id="count"> 0 </span></h3>
+
+<div class="taskList"></div>
+
+   <script src="index.js"></script>
+  </body>
+</html>
