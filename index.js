@@ -1,4 +1,4 @@
-alert("Assalomu alaykum ");
+alert("Assalomu alaykum");
 
 let tasks = [];
 
@@ -11,7 +11,6 @@ const addBtn = el(".addBtn");
 const removeLast = el(".removeLast");
 const taskList = el(".taskList");
 const count = el("#count");
-
 const shortText = (t) => t.slice(0, 20) + (t.length > 20 ? "..." : "");
 const flatCats = ["work", "home", ["urgent", "study"]].flat();
 console.log("Recommended categories:", flatCats.join(" - "));
@@ -27,32 +26,31 @@ function render(list = tasks) {
         switch (t.levels) {
             case "high": color = "red"; break;
             case "medium": color = "yellow"; break;
-            case "low": color = "lightgreen"; break;
+            case "low": color = "green"; break;
         }
 
         card.innerHTML = `
-            <h3>${t.title}</h3>
-            <p>${shortText(t.description)}</p>
-            <p>Category: ${t.category}</p>
-            <span style="background:${color}">${t.levels}</span>
-            <p>Status: ${t.completed ? "Done" : "In progress"}</p>
+            <h4> Title: ${t.title} </h4>
+            <p> Description: ${shortText(t.description)} </p>
+            <p> Category: ${t.category} </p>
+            <span style="background:${color}"> Level: ${t.levels} </span>
+            <p> Status: ${t.completed ? "Done" : "In progress"} </p>
 
-            <button onclick="completeTask(${t.id})">Complete</button>
-            <button onclick="deleteTask(${t.id})">Delete</button>
-            <button onclick="editTask(${t.id})">Edit</button>
+            <button onclick="completeTask(${t.id})"> Complete </button>
+            <button onclick="deleteTask(${t.id})"> Delete </button>
+            <button onclick="editTask(${t.id})"> Edit </button>
         `;
-
         taskList.appendChild(card);
     });
 }
 
 function addTask() {
     const t = title.value.trim();
-    const d = desc.value.trim().toLowerCase();
+    const d = desc.value.trim();
     const p = levels.value;
     const c = category.value.trim();
 
-    if (!t || !d) return alert("Input larni to'ldiring");
+    if (!t || !d) return alert("Inputlarni to'ldiring!");
 
     tasks.push({
         id: Date.now(),
@@ -91,7 +89,6 @@ function editTask(id) {
 document.querySelectorAll(".filters button").forEach(btn => {
     btn.addEventListener("click", () => {
         const f = btn.dataset.filter;
-
         if (f === "all") return render();
         if (f === "completed") return render(tasks.filter(t => t.completed));
         render(tasks.filter(t => t.levels === f));
@@ -102,5 +99,4 @@ removeLast.addEventListener("click", () => {
     tasks.pop();
     render();
 });
-
 console.log("Words:", "hello world from task".split(" ").length);

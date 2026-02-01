@@ -7,7 +7,7 @@
 
 body {
     background: #000;
-    color: cyan;
+    color: white;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,122 @@ body {
 .container {
     display: flex;
     gap: 30px;
+}
+
+.form-box {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #333;
+    box-shadow: 0 0 10px #222;
+}
+
+.form-box input,
+.form-box textarea,
+.form-box select {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    background: #222;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.form-box button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background: cyan;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.form-box button:hover {
+    opacity: 0.7;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filters button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: cyan;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filters button:hover {
+    background: cyan;
+    color: black;
+}
+
+.taskList {
+    display: grid;
+    gap: 20px;
+    width: 90%;
+    max-width: 800px;
+}
+
+.taskList div {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.taskList div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.taskList div h4 {
+    margin-bottom: 8px;
+    color: cyan;
+}
+
+.taskList div p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.taskList div span {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 8px;
+    margin: 6px 0;
+    font-weight: bold;
+    color: black;
+}
+
+.taskList div button {
+    padding: 7px 12px;
+    border: none;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    background: #333;
+    color: cyan;
+    transition: 0.3s;
+}
+
+.taskList div button:hover {
+    background: cyan;
+    color: black;
 }
 
 @media (max-width: 500px) {
